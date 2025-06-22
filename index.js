@@ -6,6 +6,7 @@ const color = require('colors');
 
 // Routes
 const authRoutes = require('./src/auth/authRoute');
+const plansRoute = require('./src/plans/planRoute');
 
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 
 
 app.use('/api/auth', authRoutes);
+app.use('/api', plansRoute);
 
 // ✅ Token verification middleware
 function verifyToken(req, res, next) {
