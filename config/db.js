@@ -5,7 +5,7 @@ const pool = mysql.createPool({
   host: '3.108.235.1',
   user: 'root',
   database: 'fnsolutions',
-  password: 'fnsAdmin@220625',
+  password: 'fnsAdmin_23062025',
   waitForConnections: true,
 });
 

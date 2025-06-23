@@ -5,7 +5,7 @@ USE fnsolutions;
 -- Create users table
 CREATE TABLE IF NOT EXISTS users (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  user_id CHAR(36) NOT NULL UNIQUE,        -- UUID like '550e8400-e29b-41d4-a716-446655440000'
+  user_id CHAR(36) NOT NULL UNIQUE,  
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
   name VARCHAR(100) NOT NULL,
