@@ -1,11 +1,14 @@
-require('dotenv').config();
+const mysql = require('mysql2/promise');
 
-module.exports = {
-  development: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
-    dialect: 'postgres'
-  }
-};
+const promisePool = mysql.createPool({
+  host: 'fnsdatabase.clkwcssiqip4.ap-south-1.rds.amazonaws.com',
+  port: 3306,
+  user: 'admin',
+  password: '5NCVAXM4HqWFkgejQTO4',
+  database: 'fnsolutions',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
+
+module.exports = { promisePool };
