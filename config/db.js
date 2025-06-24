@@ -11,24 +11,18 @@
 
 // module.exports = { promisePool: pool };
 
+// config/db.js
 const mysql = require('mysql2/promise');
 
+const promisePool = mysql.createPool({
+  host: 'fnsdatabase.clkwcssiqip4.ap-south-1.rds.amazonaws.com',
+  port: 3306,
+  user: 'admin',
+  password: '5NCVAXM4HqWFkgejQTO4',
+  database: 'fnsolutions',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
 
-(async () => {
-  try {
-    const connection = await mysql.createConnection({
-      host: 'fnsdatabase.clkwcssiqip4.ap-south-1.rds.amazonaws.com',
-      port: '3306',
-      user: 'admin',
-      password: '5NCVAXM4HqWFkgejQTO4',
-      database: 'fnsolutions',
-    });
-
-    const [rows] = await connection.execute('SELECT NOW()');
-    console.log('Connected! Current time:', rows[0]);
-
-    await connection.end();
-  } catch (err) {
-    console.error('Connection failed:', err);
-  }
-})();
+module.exports = { promisePool };
