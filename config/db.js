@@ -11,22 +11,24 @@
 
 // module.exports = { promisePool: pool };
 
-  const mysql = require('mysql2/promise');
+const mysql = require('mysql2/promise');
 
-  (async () => {
-    try {
-      const connection = await mysql.createConnection({
-        host: 'fnsdatabase.clkwcssiqip4.ap-south-1.rds.amazonaws.com',
-        user: 'admin',
-        password: '5NCVAXM4HqWFkgejQTO4',
-        database: 'fnsolutions',
-      });
 
-      const [rows] = await connection.execute('SELECT NOW()');
-      console.log('Connected! Current time:', rows[0]);
+(async () => {
+  try {
+    const connection = await mysql.createConnection({
+      host: 'fnsdatabase.clkwcssiqip4.ap-south-1.rds.amazonaws.com',
+      port: '3306',
+      user: 'admin',
+      password: '5NCVAXM4HqWFkgejQTO4',
+      database: 'fnsolutions',
+    });
 
-      await connection.end();
-    } catch (err) {
-      console.error('Connection failed:', err);
-    }
-  })();
+    const [rows] = await connection.execute('SELECT NOW()');
+    console.log('Connected! Current time:', rows[0]);
+
+    await connection.end();
+  } catch (err) {
+    console.error('Connection failed:', err);
+  }
+})();
