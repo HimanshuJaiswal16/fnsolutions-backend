@@ -4,6 +4,6 @@ const { getAllPlans } = require('./planController');
 const authMiddleware = require('./../auth/authMiddleware');
 
 // GET /api/plans
-router.get('/plans',authMiddleware, getAllPlans);
+router.get('/plans', getAllPlans);
 
 module.exports = router;
